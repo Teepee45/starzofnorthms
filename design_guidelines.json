@@ -1,0 +1,140 @@
+{
+  "theme": "LIGHT",
+  "archetype": "Archetype 1: Organic & Earthy",
+  "vibe": "Welcoming, premium, inclusive, family-friendly yet precise",
+  "typography": {
+    "headings": {
+      "fontFamily": "'Outfit', sans-serif",
+      "weights": ["300", "500", "800"],
+      "usage": "Use tight tracking (tracking-tighter) for massive headers. Never center by default. Use expressive sizes (text-5xl to text-6xl+ for hero)."
+    },
+    "body": {
+      "fontFamily": "'Work Sans', sans-serif",
+      "weights": ["400", "500"],
+      "usage": "Leading-relaxed for readability. High contrast against background."
+    },
+    "hierarchy": {
+      "h1": "text-4xl sm:text-5xl lg:text-7xl tracking-tighter font-extrabold",
+      "h2": "text-2xl sm:text-3xl lg:text-5xl tracking-tight font-bold",
+      "h3": "text-xl sm:text-2xl font-medium",
+      "body": "text-base text-foreground/80"
+    }
+  },
+  "colors": {
+    "css_variables": {
+      "light": {
+        "--background": "40 20% 97%",
+        "--foreground": "20 14% 11%",
+        "--card": "0 0% 100%",
+        "--card-foreground": "20 14% 11%",
+        "--popover": "0 0% 100%",
+        "--popover-foreground": "20 14% 11%",
+        "--primary": "20 48% 46%",
+        "--primary-foreground": "40 20% 97%",
+        "--secondary": "30 15% 90%",
+        "--secondary-foreground": "20 14% 11%",
+        "--muted": "30 15% 90%",
+        "--muted-foreground": "20 5% 45%",
+        "--accent": "30 15% 90%",
+        "--accent-foreground": "20 14% 11%",
+        "--destructive": "0 84% 60%",
+        "--destructive-foreground": "0 0% 100%",
+        "--border": "30 10% 85%",
+        "--input": "30 10% 85%",
+        "--ring": "20 48% 46%",
+        "--radius": "0rem"
+      },
+      "dark": {
+        "--background": "20 14% 11%",
+        "--foreground": "40 20% 97%",
+        "--card": "20 10% 15%",
+        "--card-foreground": "40 20% 97%",
+        "--popover": "20 10% 15%",
+        "--popover-foreground": "40 20% 97%",
+        "--primary": "20 48% 46%",
+        "--primary-foreground": "40 20% 97%",
+        "--secondary": "20 10% 15%",
+        "--secondary-foreground": "40 20% 97%",
+        "--muted": "20 10% 15%",
+        "--muted-foreground": "30 10% 70%",
+        "--accent": "20 10% 15%",
+        "--accent-foreground": "40 20% 97%",
+        "--destructive": "0 84% 60%",
+        "--destructive-foreground": "0 0% 100%",
+        "--border": "20 10% 20%",
+        "--input": "20 10% 20%",
+        "--ring": "20 48% 46%",
+        "--radius": "0rem"
+      }
+    },
+    "rationale": "Warm Sand (HSL 40 20% 97%) base to feel organic and grounded. Terracotta (HSL 20 48% 46%) primary for approachable energy. Espresso dark mode for premium contrast. Avoiding generic tech blue or flat gray."
+  },
+  "layouts": {
+    "spacing_strategy": "Generous spacing. Use py-24 or py-32 for major sections. Emphasize asymmetry and negative space.",
+    "hero_section": "Hero should feature the 4.9★ rating prominently. Use an overlapping bento grid or large typography alongside the rustic interior image. Max 30% black overlay if full screen.",
+    "services_list": "Avoid generic cards. Use 'Grid Borders' pattern (visible skeleton) or pure HTML/Tailwind tabular list with sharp borders. Must look like a high-end menu.",
+    "gallery": "Bento Grid (Mode A: The Tetris Grid). Mix col-span-4 row-span-1 with tall and wide blocks. Asymmetry creates tension. Leave some cells empty for negative space.",
+    "contact_map": "Embed map with deep, muted colors. Include address (1731 Dancy Blvd), Hours (Open · Closes 6 PM), and CTA."
+  },
+  "components": {
+    "buttons": "Sharp corners (rounded-none). Rich solid color on hover with a slight lift (-translate-y-1). Use explicit focus rings.",
+    "booking_flow": "Use Shadcn Dialog/Tabs. Minimal steps: Choose Service -> Specialist -> Date/Time -> Preferences -> Review -> Confirm. Use inclusive inputs (e.g., hair texture, communication preference).",
+    "admin_dashboard": "Strict grid hierarchy (Mode B: Control Room Grid). Tight spacing (gap-4). Dense data display for appointments using Shadcn tables.",
+    "navigation": "Sticky header with crystal glassmorphism (backdrop-blur-xl bg-background/70). Must include primary 'Book Now' CTA."
+  },
+  "motion": {
+    "page_transitions": "Framer motion staggered fade-in up for lists (e.g., gallery items, barbers).",
+    "hover_states": "Hover states must have higher contrast. explicit text color changes on hover.",
+    "scroll": "Use Lenis for smooth scrolling to provide momentum and weight."
+  },
+  "media": {
+    "image_urls": {
+      "hero": {
+        "url": "https://images.pexels.com/photos/13058812/pexels-photo-13058812.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Rustic modern barber shop interior with warm lighting.",
+        "usage": "Main hero background or prominent hero image to set the welcoming atmosphere."
+      },
+      "gallery_precision": {
+        "url": "https://images.pexels.com/photos/33448216/pexels-photo-33448216.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Detailed view of precision haircut.",
+        "usage": "Gallery bento grid - Tall block to highlight 'Quality Precision Cuts'."
+      },
+      "gallery_service": {
+        "url": "https://images.pexels.com/photos/32329615/pexels-photo-32329615.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Skillful cut in progress.",
+        "usage": "Gallery or Services section background."
+      },
+      "interior_empty": {
+        "url": "https://images.pexels.com/photos/9146943/pexels-photo-9146943.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Elegant empty barber chairs.",
+        "usage": "About section or Contact background."
+      },
+      "barber_1": {
+        "url": "https://images.unsplash.com/photo-1625241152315-4a698f74ceb7?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAxODF8MHwxfHNlYXJjaHwyfHxkaXZlcnNlJTIwd2VsY29taW5nJTIwcG9ydHJhaXQlMjBzbWlsaW5nfGVufDB8fHx8MTc4MDA3Mzk0Nnww&ixlib=rb-4.1.0&q=85",
+        "description": "Friendly male portrait.",
+        "usage": "Barbers/Team showcase."
+      },
+      "barber_2": {
+        "url": "https://images.unsplash.com/photo-1484863137850-59afcfe05386?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAxODF8MHwxfHNlYXJjaHwxfHxkaXZlcnNlJTIwd2VsY29taW5nJTIwcG9ydHJhaXQlMjBzbWlsaW5nfGVufDB8fHx8MTc4MDA3Mzk0Nnww&ixlib=rb-4.1.0&q=85",
+        "description": "Friendly female portrait.",
+        "usage": "Barbers/Team showcase."
+      },
+      "barber_3": {
+        "url": "https://images.unsplash.com/photo-1662850886700-4ec19bd30d11?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAxODF8MHwxfHNlYXJjaHwzfHxkaXZlcnNlJTIwd2VsY29taW5nJTIwcG9ydHJhaXQlMjBzbWlsaW5nfGVufDB8fHx8MTc4MDA3Mzk0Nnww&ixlib=rb-4.1.0&q=85",
+        "description": "Inclusive team member.",
+        "usage": "Barbers/Team showcase."
+      }
+    }
+  },
+  "instructions_to_main_agent": [
+    "INSTALLATION: Run 'npm install @phosphor-icons/react framer-motion @studio-freight/lenis' before starting.",
+    "HTML STRUCTURE: Do not use generic Shadcn Card wrappers for marketing sections. Use pure HTML/Tailwind for asymmetric bento layouts.",
+    "TESTING: Add 'data-testid' to all buttons, links, inputs, and tab triggers. E.g., data-testid='book-now-hero-btn', data-testid='service-select-fade'.",
+    "ICONS: Use @phosphor-icons/react for high-end, crisp iconography. Avoid generic Lucide if possible, or use Lucide with stroke-width 1.5 for elegance.",
+    "ACCESSIBILITY: Ensure header has a frosted glass background (backdrop-blur-xl bg-background/70) to ensure text legibility over any scrolling images.",
+    "APP LOGIC: Implement the booking flow inside a dedicated multi-step form or dialog, featuring distinct steps (Service -> Barber -> Date -> Details).",
+    "FONTS: Import 'Outfit' and 'Work Sans' from Google Fonts in index.css. Apply them globally in tailwind.config.js.",
+    "DASHBOARD: Make the Admin Dashboard dense and functional. Use flat backgrounds, 1px subtle borders, no shadows.",
+    "VIBE CHECK: Maintain the LGBTQ+ friendly and family atmosphere by using the curated imagery and warm copy. Avoid dark 'bro-barber' cliches."
+  ]
+}
