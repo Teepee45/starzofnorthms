@@ -10,6 +10,7 @@ module.exports = {
             fontFamily: {
                 heading: ['Outfit', 'sans-serif'],
                 sans: ['Work Sans', 'sans-serif'],
+                script: ['Caveat', 'cursive'],
             },
             borderRadius: {
                 lg: 'var(--radius)',

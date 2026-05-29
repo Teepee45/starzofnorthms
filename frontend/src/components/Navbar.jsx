@@ -55,13 +55,6 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <a
-            href="tel:+16623938902"
-            data-testid="navbar-call-btn"
-            className="hidden sm:inline text-sm font-medium text-foreground/70 hover:text-foreground"
-          >
-            (662) 393-8902
-          </a>
           <Link to="/book">
             <Button data-testid="navbar-book-btn" className="rounded-none font-medium tracking-wide">
               Book Now

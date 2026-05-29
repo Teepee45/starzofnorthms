@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Star, MapPin, Phone, Clock, ArrowUpRight, Heart, Sparkles, Scissors } from "lucide-react";
+import { Star, MapPin, Phone, Clock, ArrowUpRight, Heart, Sparkles, Scissors, Coffee, Smile, Baby, CheckCircle2 } from "lucide-react";
 import { api } from "@/lib/api";
 
 const HERO_IMG = "https://images.pexels.com/photos/13058812/pexels-photo-13058812.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
@@ -12,13 +12,15 @@ const G1 = "https://images.pexels.com/photos/33448216/pexels-photo-33448216.jpeg
 const G2 = "https://images.pexels.com/photos/32329615/pexels-photo-32329615.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
 const G3 = "https://images.pexels.com/photos/9146943/pexels-photo-9146943.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
 
+const OWNER_IMG = "https://images.unsplash.com/photo-1625241152315-4a698f74ceb7?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAxODF8MHwxfHNlYXJjaHwyfHxkaXZlcnNlJTIwd2VsY29taW5nJTIwcG9ydHJhaXQlMjBzbWlsaW5nfGVufDB8fHx8MTc4MDA3Mzk0Nnww&ixlib=rb-4.1.0&q=85";
+
 const REVIEWS = [
-  { name: "Tasha M.", rating: 5, text: "Quality precision cuts, family atmosphere. Personable owner and staff. I won't go anywhere else." },
-  { name: "Andre J.", rating: 5, text: "Friendly environment and couldn't ask for better service. They take their time." },
-  { name: "Marisol R.", rating: 5, text: "Great atmosphere, great customer service. My kids love it too." },
-  { name: "Ethan B.", rating: 5, text: "Best fade in Horn Lake — no exaggeration. Marcus is an artist." },
-  { name: "Devin O.", rating: 5, text: "Inclusive, welcoming, sharp. Walked in nervous, walked out feeling brand new." },
-  { name: "Priya N.", rating: 5, text: "Jasmine did my color and I cried (happy tears). Stylist for life." },
+  { name: "Tasha M.", neighborhood: "Horn Lake regular", rating: 5, text: "Quality precision cuts, family atmosphere. Personable owner and staff. I won't go anywhere else." },
+  { name: "Andre J.", neighborhood: "Southaven", rating: 5, text: "Friendly environment and couldn't ask for better service. They take their time, never rushed." },
+  { name: "Marisol R.", neighborhood: "Mom of three", rating: 5, text: "Great atmosphere, great customer service. My kids actually ASK to come back. That's never happened." },
+  { name: "Ethan B.", neighborhood: "Memphis", rating: 5, text: "Best fade in north Mississippi — no exaggeration. Marcus is an artist." },
+  { name: "Devin O.", neighborhood: "First-timer", rating: 5, text: "Inclusive, welcoming, sharp. Walked in nervous, walked out feeling brand new." },
+  { name: "Priya N.", neighborhood: "Olive Branch", rating: 5, text: "Jasmine did my color and I cried (happy tears). Stylist for life." },
 ];
 
 export default function Home() {
@@ -48,14 +50,17 @@ export default function Home() {
                   <span className="text-muted-foreground">· 45 Google reviews</span>
                 </div>
               </div>
+              <p className="font-script text-primary text-3xl sm:text-4xl leading-none mb-3">
+                Hey, glad you stopped by —
+              </p>
               <h1 className="font-heading font-extrabold tracking-tighter text-5xl sm:text-6xl lg:text-7xl leading-[0.95]">
                 Quality cuts.<br />
                 <span className="text-primary">Family</span> chair.<br />
                 Everyone welcome.
               </h1>
               <p className="mt-6 max-w-xl text-base lg:text-lg text-foreground/70 leading-relaxed">
-                Starz Barber & Beauty is Horn Lake's home for precision cuts, hot-towel shaves,
-                color, and styling — delivered by a team that treats every client like family.
+                We're a small, hard-working shop in Horn Lake. Precision cuts, hot-towel shaves,
+                color, kids' cuts — all done by people who'll remember your name on the second visit.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <Link to="/book">
@@ -92,34 +97,89 @@ export default function Home() {
 
         </section>
 
-        {/* ABOUT */}
-        <section data-testid="about-section" className="max-w-7xl mx-auto px-6 lg:px-10 py-24 lg:py-32 grid lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-5">
-            <img src={G3} alt="Empty barber chairs" className="w-full aspect-[4/5] object-cover" />
+        {/* OWNER NOTE — humanized */}
+        <section data-testid="about-section" className="max-w-7xl mx-auto px-6 lg:px-10 py-24 lg:py-32">
+          <div className="grid lg:grid-cols-12 gap-12 items-start">
+            {/* Owner polaroid */}
+            <div className="lg:col-span-5 relative">
+              <div className="relative inline-block rotate-[-2deg]">
+                <div className="bg-card border border-border p-3 pb-14 shadow-sm">
+                  <img src={OWNER_IMG} alt="Marcus, owner" className="w-full aspect-[4/5] object-cover" />
+                  <p className="absolute bottom-3 left-0 right-0 text-center font-script text-2xl text-foreground/80">Marcus, day one.</p>
+                </div>
+                {/* tape */}
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-20 h-5 bg-primary/30 rotate-[-3deg]" />
+              </div>
+              <div className="absolute bottom-6 -right-2 sm:right-6 bg-background border border-border p-4 max-w-[200px] rotate-[2deg] shadow-sm">
+                <p className="font-script text-primary text-2xl leading-none">Coffee's on us ☕</p>
+                <p className="text-xs text-muted-foreground mt-2">While you wait. Always.</p>
+              </div>
+            </div>
+
+            <div className="lg:col-span-7">
+              <p className="text-sm uppercase tracking-[0.3em] text-primary mb-4">A note from the chair</p>
+              <h2 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-tight">
+                Pull up a seat.<br/>Stay a while.
+              </h2>
+              <div className="mt-6 space-y-4 text-foreground/80 leading-relaxed text-lg max-w-2xl">
+                <p>
+                  I opened Starz because Horn Lake deserved a shop that felt like home the
+                  minute you walk in. We're not a chain. We're <span className="font-medium text-foreground">your neighbors</span> —
+                  and we cut hair like it.
+                </p>
+                <p>
+                  First fade? Beard trim before the wedding? Color refresh? Bringing the kiddos
+                  for their first haircut? <span className="font-medium text-foreground">We've got you.</span>
+                  No judgment, no rush. Good music, good conversation, and a cut you'll
+                  actually be excited to show off.
+                </p>
+                <p className="font-script text-primary text-4xl leading-none pt-2">
+                  — Marcus
+                </p>
+                <p className="text-sm text-muted-foreground -mt-2">Owner · master barber · proud girl-dad</p>
+              </div>
+
+              <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 gap-6 border-t border-border pt-8">
+                <div>
+                  <p className="font-heading text-4xl font-extrabold">4.9★</p>
+                  <p className="text-xs uppercase tracking-widest text-muted-foreground mt-1">Google Rating</p>
+                </div>
+                <div>
+                  <p className="font-heading text-4xl font-extrabold">45+</p>
+                  <p className="text-xs uppercase tracking-widest text-muted-foreground mt-1">5-star Reviews</p>
+                </div>
+                <div>
+                  <p className="font-heading text-4xl font-extrabold">All</p>
+                  <p className="text-xs uppercase tracking-widest text-muted-foreground mt-1">Textures & Ages</p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="lg:col-span-7">
-            <p className="text-sm uppercase tracking-[0.3em] text-primary mb-4">About the shop</p>
-            <h2 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-tight">
-              A chair for every story —<br/>cut with respect, finished with care.
-            </h2>
-            <p className="mt-6 text-foreground/75 leading-relaxed max-w-2xl">
-              We opened Starz to give Horn Lake something rare: a barbershop that feels like
-              home the moment you walk in. Whether it's your first fade, a beard sculpt before
-              the wedding, or a color refresh — our team takes the time to get it right.
-            </p>
-            <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 gap-6 border-t border-border pt-8">
+        </section>
+
+        {/* FIRST TIME — friendly checklist */}
+        <section data-testid="first-time-section" className="bg-secondary/30 border-y border-border">
+          <div className="max-w-7xl mx-auto px-6 lg:px-10 py-20 lg:py-24">
+            <div className="flex items-end justify-between mb-10 flex-wrap gap-4">
               <div>
-                <p className="font-heading text-4xl font-extrabold">4.9★</p>
-                <p className="text-xs uppercase tracking-widest text-muted-foreground mt-1">Google Rating</p>
+                <p className="font-script text-primary text-3xl">First time?</p>
+                <h2 className="font-heading font-bold text-2xl sm:text-3xl lg:text-4xl tracking-tight">Here's what to expect.</h2>
               </div>
-              <div>
-                <p className="font-heading text-4xl font-extrabold">45+</p>
-                <p className="text-xs uppercase tracking-widest text-muted-foreground mt-1">5-star Reviews</p>
-              </div>
-              <div>
-                <p className="font-heading text-4xl font-extrabold">All</p>
-                <p className="text-xs uppercase tracking-widest text-muted-foreground mt-1">Textures & Ages</p>
-              </div>
+              <p className="text-sm text-muted-foreground max-w-xs">No surprises. No pressure. Just a good cut and a better conversation.</p>
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {[
+                { icon: Smile, title: "A real hello", text: "We greet you by name (or learn it on the spot)." },
+                { icon: Coffee, title: "Coffee & water", text: "On the house, every visit. Hot or iced." },
+                { icon: Baby, title: "Kids welcome", text: "Patient, gentle cuts for the little ones." },
+                { icon: CheckCircle2, title: "We listen first", text: "Quick chat about your hair before any clipper turns on." },
+              ].map((item, i) => (
+                <div key={i} className="bg-background border border-border p-6">
+                  <item.icon className="w-5 h-5 text-primary mb-4" strokeWidth={1.5}/>
+                  <p className="font-heading font-bold text-lg">{item.title}</p>
+                  <p className="text-sm text-foreground/70 mt-2 leading-relaxed">{item.text}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -200,12 +260,13 @@ export default function Home() {
             <div className="lg:col-span-4">
               <p className="text-sm uppercase tracking-[0.3em] text-primary mb-4">From the chair</p>
               <h2 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl tracking-tight">
-                4.9 stars.<br/>45 stories.
+                Real people.<br/>Real stories.
               </h2>
               <p className="mt-5 text-foreground/70 max-w-sm">
-                A few words from the people who keep coming back.
+                A few words from the folks who keep coming back.
               </p>
-              <div className="mt-8 flex items-center gap-1">
+              <p className="mt-4 font-script text-primary text-3xl">Thank you, Horn Lake.</p>
+              <div className="mt-6 flex items-center gap-1">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-6 h-6 fill-primary text-primary"/>
                 ))}
@@ -214,14 +275,17 @@ export default function Home() {
             </div>
             <div className="lg:col-span-8 grid sm:grid-cols-2 gap-4">
               {REVIEWS.map((r, i) => (
-                <div key={i} data-testid={`review-card-${i}`} className="border border-border p-6 bg-background">
+                <div key={i} data-testid={`review-card-${i}`} className={`border border-border p-6 bg-background ${i % 2 === 0 ? "rotate-[-0.4deg]" : "rotate-[0.4deg]"}`}>
                   <div className="flex items-center gap-1 mb-3">
                     {[...Array(r.rating)].map((_, j) => (
                       <Star key={j} className="w-3.5 h-3.5 fill-primary text-primary"/>
                     ))}
                   </div>
                   <p className="text-foreground/85 leading-relaxed text-sm">"{r.text}"</p>
-                  <p className="text-xs uppercase tracking-widest text-muted-foreground mt-4">— {r.name}</p>
+                  <div className="mt-5 pt-4 border-t border-border flex items-center justify-between">
+                    <p className="font-heading font-semibold text-sm">{r.name}</p>
+                    <p className="text-xs text-muted-foreground">{r.neighborhood}</p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -236,6 +300,7 @@ export default function Home() {
               <h2 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl tracking-tight">
                 See you in the chair.
               </h2>
+              <p className="mt-4 font-script text-primary text-3xl">Door's always open.</p>
               <div className="mt-10 space-y-6">
                 <div>
                   <p className="text-xs uppercase tracking-widest text-background/60">Address</p>
