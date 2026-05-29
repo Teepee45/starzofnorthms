@@ -23,11 +23,9 @@ const REVIEWS = [
 
 export default function Home() {
   const [services, setServices] = useState([]);
-  const [barbers, setBarbers] = useState([]);
 
   useEffect(() => {
     api.get("/services").then((r) => setServices(r.data)).catch(() => {});
-    api.get("/barbers").then((r) => setBarbers(r.data)).catch(() => {});
   }, []);
 
   return (
@@ -92,21 +90,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* marquee */}
-          <div className="border-y border-border bg-secondary/40 overflow-hidden py-4">
-            <div className="marquee text-foreground/60 text-sm tracking-[0.3em] uppercase">
-              {Array.from({ length: 2 }).map((_, k) => (
-                <div key={k} className="flex items-center gap-10 px-5 shrink-0">
-                  {["Skin Fades", "Hot Towel Shaves", "Color & Style", "Kids Cuts", "Lineups", "Beard Sculpts", "Walk-ins Welcome"].map((s) => (
-                    <span key={s} className="flex items-center gap-10">
-                      {s}
-                      <span className="w-1 h-1 bg-foreground/40 rounded-full" />
-                    </span>
-                  ))}
-                </div>
-              ))}
-            </div>
-          </div>
         </section>
 
         {/* ABOUT */}
@@ -180,32 +163,6 @@ export default function Home() {
                 <div className="py-10 text-center text-muted-foreground">Loading services…</div>
               )}
             </div>
-          </div>
-        </section>
-
-        {/* TEAM */}
-        <section id="team" data-testid="team-section" className="max-w-7xl mx-auto px-6 lg:px-10 py-24 lg:py-32">
-          <div className="mb-14">
-            <p className="text-sm uppercase tracking-[0.3em] text-primary mb-4">Behind the chair</p>
-            <h2 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl tracking-tight">Meet the team.</h2>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
-            {barbers.map((b, idx) => (
-              <div key={b.id} data-testid={`barber-card-${b.id}`} className="group">
-                <div className="relative aspect-[3/4] overflow-hidden bg-secondary">
-                  <img src={b.image_url} alt={b.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                  <span className="absolute top-3 left-3 bg-background text-foreground text-xs px-2 py-1">0{idx + 1}</span>
-                </div>
-                <h3 className="mt-5 font-heading font-bold text-xl">{b.name}</h3>
-                <p className="text-xs uppercase tracking-widest text-primary mt-1">{b.role}</p>
-                <p className="mt-3 text-sm text-foreground/70 leading-relaxed">{b.bio}</p>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {b.specialties.map((s) => (
-                    <span key={s} className="text-xs border border-border px-2 py-1 text-foreground/70">{s}</span>
-                  ))}
-                </div>
-              </div>
-            ))}
           </div>
         </section>
 

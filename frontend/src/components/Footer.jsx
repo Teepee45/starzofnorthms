@@ -34,7 +34,7 @@ export default function Footer() {
           <ul className="space-y-2 text-sm text-foreground/80">
             <li><Link to="/book" className="hover:text-primary">Book Online</Link></li>
             <li><a href="#services" className="hover:text-primary">Services</a></li>
-            <li><a href="#team" className="hover:text-primary">Our Team</a></li>
+            <li><a href="#gallery" className="hover:text-primary">Gallery</a></li>
             <li><Link to="/admin" className="hover:text-primary">Staff</Link></li>
           </ul>
         </div>
