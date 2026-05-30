@@ -97,66 +97,6 @@ export default function Home() {
 
         </section>
 
-        {/* OWNER NOTE — humanized */}
-        <section data-testid="about-section" className="max-w-7xl mx-auto px-6 lg:px-10 py-24 lg:py-32">
-          <div className="grid lg:grid-cols-12 gap-12 items-start">
-            {/* Owner polaroid */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative inline-block rotate-[-2deg]">
-                <div className="bg-card border border-border p-3 pb-14 shadow-sm">
-                  <img src={OWNER_IMG} alt="Marcus, owner" className="w-full aspect-[4/5] object-cover" />
-                  <p className="absolute bottom-3 left-0 right-0 text-center font-script text-2xl text-foreground/80">Marcus, day one.</p>
-                </div>
-                {/* tape */}
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-20 h-5 bg-primary/30 rotate-[-3deg]" />
-              </div>
-              <div className="absolute bottom-6 -right-2 sm:right-6 bg-background border border-border p-4 max-w-[200px] rotate-[2deg] shadow-sm">
-                <p className="font-script text-primary text-2xl leading-none">Coffee's on us ☕</p>
-                <p className="text-xs text-muted-foreground mt-2">While you wait. Always.</p>
-              </div>
-            </div>
-
-            <div className="lg:col-span-7">
-              <p className="text-sm uppercase tracking-[0.3em] text-primary mb-4">A note from the chair</p>
-              <h2 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-tight">
-                Pull up a seat.<br/>Stay a while.
-              </h2>
-              <div className="mt-6 space-y-4 text-foreground/80 leading-relaxed text-lg max-w-2xl">
-                <p>
-                  I opened Starz because Horn Lake deserved a shop that felt like home the
-                  minute you walk in. We're not a chain. We're <span className="font-medium text-foreground">your neighbors</span> —
-                  and we cut hair like it.
-                </p>
-                <p>
-                  First fade? Beard trim before the wedding? Color refresh? Bringing the kiddos
-                  for their first haircut? <span className="font-medium text-foreground">We've got you.</span>
-                  No judgment, no rush. Good music, good conversation, and a cut you'll
-                  actually be excited to show off.
-                </p>
-                <p className="font-script text-primary text-4xl leading-none pt-2">
-                  — Marcus
-                </p>
-                <p className="text-sm text-muted-foreground -mt-2">Owner · master barber · proud girl-dad</p>
-              </div>
-
-              <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 gap-6 border-t border-border pt-8">
-                <div>
-                  <p className="font-heading text-4xl font-extrabold">4.9★</p>
-                  <p className="text-xs uppercase tracking-widest text-muted-foreground mt-1">Google Rating</p>
-                </div>
-                <div>
-                  <p className="font-heading text-4xl font-extrabold">45+</p>
-                  <p className="text-xs uppercase tracking-widest text-muted-foreground mt-1">5-star Reviews</p>
-                </div>
-                <div>
-                  <p className="font-heading text-4xl font-extrabold">All</p>
-                  <p className="text-xs uppercase tracking-widest text-muted-foreground mt-1">Textures & Ages</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* FIRST TIME — friendly checklist */}
         <section data-testid="first-time-section" className="bg-secondary/30 border-y border-border">
           <div className="max-w-7xl mx-auto px-6 lg:px-10 py-20 lg:py-24">
