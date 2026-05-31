@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { Scissors } from "lucide-react";
 import { BOOKSY_URL } from "@/lib/booking";
 
 export default function Footer() {
@@ -7,9 +6,9 @@ export default function Footer() {
     <footer data-testid="site-footer" className="border-t border-border bg-background mt-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16 grid md:grid-cols-4 gap-10">
         <div className="md:col-span-2">
-          <div className="flex items-center gap-2 mb-4">
-            <span className="w-8 h-8 bg-primary text-primary-foreground flex items-center justify-center">
-              <Scissors className="w-4 h-4" strokeWidth={1.5} />
+          <div className="flex items-center gap-3 mb-4">
+            <span className="bg-foreground p-2 flex items-center justify-center">
+              <img src="/logo.jpeg" alt="Starz Barber & Beauty" className="w-12 h-12 object-contain" />
             </span>
             <span className="font-heading font-extrabold tracking-tight text-xl">
               STARZ Barber & Beauty

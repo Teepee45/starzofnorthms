@@ -1,6 +1,6 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Scissors } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { BOOKSY_URL } from "@/lib/booking";
 
@@ -33,11 +33,11 @@ export default function Navbar() {
       className="fixed top-0 inset-x-0 z-50 backdrop-blur-xl bg-background/70 border-b border-border"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">
-        <Link to="/" data-testid="navbar-logo" className="flex items-center gap-2 group">
-          <span className="w-8 h-8 bg-primary text-primary-foreground flex items-center justify-center">
-            <Scissors className="w-4 h-4" strokeWidth={1.5} />
+        <Link to="/" data-testid="navbar-logo" className="flex items-center gap-3 group">
+          <span className="bg-foreground p-1.5 flex items-center justify-center">
+            <img src="/logo.jpeg" alt="Starz Barber & Beauty" className="w-9 h-9 object-contain" />
           </span>
-          <span className="font-heading font-extrabold tracking-tight text-lg">
+          <span className="font-heading font-extrabold tracking-tight text-base hidden sm:inline">
             STARZ <span className="font-light text-muted-foreground">/ Barber & Beauty</span>
           </span>
         </Link>
