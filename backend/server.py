@@ -29,10 +29,12 @@ api_router = APIRouter(prefix="/api")
 class Service(BaseModel):
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
     name: str
-    description: str
+    description: str = ""
     duration_min: int
     price: float
-    category: str = "Hair"
+    price_from: bool = False  # show "$X+" when True
+    category: str = "Cuts"
+    sort_order: int = 0
 
 
 class Barber(BaseModel):
@@ -74,14 +76,47 @@ class AdminLogin(BaseModel):
 
 # ---------- Seed Data ----------
 SEED_SERVICES = [
-    {"name": "Signature Haircut", "description": "Consultation, precision cut, hot towel finish.", "duration_min": 45, "price": 35.0, "category": "Hair"},
-    {"name": "Skin Fade", "description": "Bald or skin fade tapered with surgical precision.", "duration_min": 50, "price": 40.0, "category": "Hair"},
-    {"name": "Beard Sculpt", "description": "Shape-up, line work, hot lather finish.", "duration_min": 30, "price": 25.0, "category": "Beard"},
-    {"name": "Lineup / Edge-Up", "description": "Crisp hairline cleanup between cuts.", "duration_min": 20, "price": 18.0, "category": "Hair"},
-    {"name": "Kids Cut (12 & under)", "description": "Patient, fun cut for the little ones.", "duration_min": 30, "price": 22.0, "category": "Kids"},
-    {"name": "Hot Towel Royal Shave", "description": "Straight-razor shave, steamed towels, balm.", "duration_min": 45, "price": 38.0, "category": "Beard"},
-    {"name": "Color & Style", "description": "Custom hair color, wash, and finish.", "duration_min": 90, "price": 75.0, "category": "Beauty"},
-    {"name": "Wash, Cut & Style", "description": "Full salon experience for all hair types.", "duration_min": 60, "price": 55.0, "category": "Beauty"},
+    # Cuts
+    {"name": "Adult Haircut with Shave", "description": "Full cut and finishing straight-razor shave.", "duration_min": 55, "price": 50.0, "category": "Cuts", "sort_order": 10},
+    {"name": "Adult Haircut (no shave)", "description": "Consultation, precision cut, hot-towel finish.", "duration_min": 40, "price": 40.0, "category": "Cuts", "sort_order": 11},
+    {"name": "Youth Haircut", "description": "Patient, friendly cut for the younger crowd.", "duration_min": 35, "price": 30.0, "category": "Cuts", "sort_order": 12},
+    {"name": "Youth Haircut with Shave", "description": "Youth cut with light shave/edge-up.", "duration_min": 45, "price": 35.0, "category": "Cuts", "sort_order": 13},
+    {"name": "Shaved Head", "description": "Bald with steam-towel finish.", "duration_min": 40, "price": 40.0, "category": "Cuts", "sort_order": 14},
+    {"name": "Adult Line & Tape (no shave)", "description": "Not a full haircut — touch-up on sides and a detailed line-up.", "duration_min": 30, "price": 30.0, "category": "Cuts", "sort_order": 15},
+    {"name": "Adult Line & Tape with Shave", "description": "Side touch-up, detailed line-up, razor shave.", "duration_min": 40, "price": 40.0, "category": "Cuts", "sort_order": 16},
+    {"name": "Youth Line & Tape", "description": "Touch-up and lineup for youth.", "duration_min": 30, "price": 25.0, "price_from": True, "category": "Cuts", "sort_order": 17},
+
+    # Beard & Shave
+    {"name": "Beard Trim", "description": "Shape-up and line work.", "duration_min": 30, "price": 25.0, "category": "Beard & Shave", "sort_order": 20},
+    {"name": "Razor Shave", "description": "Straight-razor shave with hot-towel finish.", "duration_min": 30, "price": 25.0, "category": "Beard & Shave", "sort_order": 21},
+    {"name": "Beard Dye", "description": "Custom beard color.", "duration_min": 20, "price": 15.0, "category": "Beard & Shave", "sort_order": 22},
+    {"name": "Beard Maintenance Shampoo", "description": "Deep shampoo and condition.", "duration_min": 20, "price": 15.0, "category": "Beard & Shave", "sort_order": 23},
+    {"name": "Beard Trim with Color", "description": "Trim plus full color.", "duration_min": 45, "price": 35.0, "category": "Beard & Shave", "sort_order": 24},
+
+    # Brow
+    {"name": "Eyebrow Arch", "description": "Clean arch and shape.", "duration_min": 20, "price": 20.0, "category": "Brow", "sort_order": 30},
+    {"name": "Eyebrow Tint", "description": "Custom tint and shape.", "duration_min": 20, "price": 15.0, "category": "Brow", "sort_order": 31},
+
+    # Color
+    {"name": "Hair Color", "description": "Hair color with conditioning.", "duration_min": 60, "price": 30.0, "price_from": True, "category": "Color", "sort_order": 40},
+
+    # Locs
+    {"name": "Loc Retwist · Shoulder & Above", "description": "Retwist, shampoo, and light condition included.", "duration_min": 150, "price": 80.0, "price_from": True, "category": "Locs", "sort_order": 50},
+    {"name": "Loc Retwist · Shoulder to Mid-Back", "description": "Retwist, shampoo, and light condition included.", "duration_min": 180, "price": 100.0, "category": "Locs", "sort_order": 51},
+    {"name": "Loc Retwist · Mid-Back & Longer", "description": "Retwist, shampoo, and light condition included.", "duration_min": 210, "price": 120.0, "category": "Locs", "sort_order": 52},
+    {"name": "Loc Style Only", "description": "Includes shampoo and style of your choice.", "duration_min": 60, "price": 40.0, "price_from": True, "category": "Locs", "sort_order": 53},
+    {"name": "Starter Locs · Medium / Large Parts (60–80 locs)", "description": "Consultation required before booking.", "duration_min": 210, "price": 130.0, "price_from": True, "category": "Locs", "sort_order": 54},
+    {"name": "Starter Locs · Small Parts (100+ locs)", "description": "Consultation required before booking.", "duration_min": 240, "price": 165.0, "price_from": True, "category": "Locs", "sort_order": 55},
+
+    # Braids & Twists
+    {"name": "All Straight-Line Braid Styles", "description": "Must come shampooed and blow-dried, hair free of oils.", "duration_min": 180, "price": 80.0, "price_from": True, "category": "Braids & Twists", "sort_order": 60},
+    {"name": "Braids with Designs", "description": "Must come shampooed and blow-dried, hair free of oils.", "duration_min": 270, "price": 100.0, "price_from": True, "category": "Braids & Twists", "sort_order": 61},
+    {"name": "Two-Strand Twist", "description": "Must come shampooed and blow-dried, hair free of oils.", "duration_min": 150, "price": 80.0, "price_from": True, "category": "Braids & Twists", "sort_order": 62},
+    {"name": "Feed-In / Stitch · 2 Braids", "description": "Feed-in stitch braid style.", "duration_min": 120, "price": 80.0, "price_from": True, "category": "Braids & Twists", "sort_order": 63},
+    {"name": "Feed-In / Stitch · 4–6 Braids", "description": "Feed-in stitch braid style.", "duration_min": 180, "price": 100.0, "category": "Braids & Twists", "sort_order": 64},
+    {"name": "Feed-In / Stitch · 8–10 Braids", "description": "Feed-in stitch braid style.", "duration_min": 270, "price": 125.0, "category": "Braids & Twists", "sort_order": 65},
+    {"name": "Feed-In / Stitch · 12–16 Braids", "description": "Feed-in stitch braid style.", "duration_min": 330, "price": 150.0, "category": "Braids & Twists", "sort_order": 66},
+    {"name": "Feed-In / Stitch · 18–20 Braids", "description": "Feed-in stitch braid style.", "duration_min": 390, "price": 180.0, "category": "Braids & Twists", "sort_order": 67},
 ]
 
 SEED_BARBERS = [
@@ -113,9 +148,10 @@ SEED_BARBERS = [
 
 
 async def seed_db():
-    if await db.services.count_documents({}) == 0:
-        for s in SEED_SERVICES:
-            await db.services.insert_one(Service(**s).model_dump())
+    # Re-sync services on every startup so menu changes in code apply immediately.
+    await db.services.delete_many({})
+    for s in SEED_SERVICES:
+        await db.services.insert_one(Service(**s).model_dump())
     if await db.barbers.count_documents({}) == 0:
         for b in SEED_BARBERS:
             await db.barbers.insert_one(Barber(**b).model_dump())
@@ -129,7 +165,7 @@ async def root():
 
 @api_router.get("/services", response_model=List[Service])
 async def list_services():
-    docs = await db.services.find({}, {"_id": 0}).to_list(200)
+    docs = await db.services.find({}, {"_id": 0}).sort("sort_order", 1).to_list(200)
     return docs
 
 

@@ -140,30 +140,54 @@ export default function Home() {
               </Button>
             </div>
 
-            <div className="divide-y divide-border border-t border-b border-border bg-background">
-              {services.map((s) => (
-                <div
-                  key={s.id}
-                  data-testid={`service-row-${s.id}`}
-                  className="grid grid-cols-12 gap-4 py-5 px-4 sm:px-6 items-center hover:bg-secondary/40 transition-colors"
-                >
-                  <div className="col-span-12 sm:col-span-5">
-                    <p className="font-heading font-bold text-lg sm:text-xl">{s.name}</p>
-                    <p className="text-xs uppercase tracking-widest text-primary mt-1">{s.category}</p>
+            <div className="border-t border-b border-border bg-background">
+              {(() => {
+                const grouped = services.reduce((acc, s) => {
+                  (acc[s.category] = acc[s.category] || []).push(s);
+                  return acc;
+                }, {});
+                const order = ["Cuts", "Beard & Shave", "Brow", "Color", "Locs", "Braids & Twists"];
+                const cats = Object.keys(grouped).sort((a, b) => order.indexOf(a) - order.indexOf(b));
+                const fmtDur = (m) => {
+                  const h = Math.floor(m / 60); const r = m % 60;
+                  if (h && r) return `${h}h ${r}m`;
+                  if (h) return `${h}h`;
+                  return `${r}m`;
+                };
+                return cats.map((cat) => (
+                  <div key={cat}>
+                    <div className="bg-secondary/60 px-4 sm:px-6 py-3 border-b border-border flex items-baseline justify-between">
+                      <h3 className="font-heading font-bold text-lg uppercase tracking-widest">{cat}</h3>
+                      <span className="text-xs text-muted-foreground">{grouped[cat].length} service{grouped[cat].length > 1 ? "s" : ""}</span>
+                    </div>
+                    <div className="divide-y divide-border">
+                      {grouped[cat].map((s) => (
+                        <div
+                          key={s.id}
+                          data-testid={`service-row-${s.id}`}
+                          className="grid grid-cols-12 gap-3 py-4 px-4 sm:px-6 items-center hover:bg-secondary/40 transition-colors"
+                        >
+                          <div className="col-span-12 sm:col-span-6">
+                            <p className="font-heading font-bold text-base sm:text-lg">{s.name}</p>
+                            {s.description && <p className="text-xs text-foreground/60 mt-1 leading-relaxed">{s.description}</p>}
+                          </div>
+                          <div className="col-span-6 sm:col-span-3 text-sm text-muted-foreground">{fmtDur(s.duration_min)}</div>
+                          <div className="col-span-6 sm:col-span-3 text-right">
+                            <p className="font-heading font-extrabold text-lg">
+                              ${s.price.toFixed(0)}{s.price_from ? "+" : ""}
+                            </p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                  <div className="col-span-8 sm:col-span-4 text-sm text-foreground/70 leading-relaxed">
-                    {s.description}
-                  </div>
-                  <div className="col-span-2 sm:col-span-1 text-sm text-muted-foreground text-center">{s.duration_min}m</div>
-                  <div className="col-span-2 sm:col-span-2 text-right">
-                    <p className="font-heading font-extrabold text-xl">${s.price.toFixed(0)}</p>
-                  </div>
-                </div>
-              ))}
+                ));
+              })()}
               {services.length === 0 && (
                 <div className="py-10 text-center text-muted-foreground">Loading services…</div>
               )}
             </div>
+            <p className="text-xs text-muted-foreground mt-4">Prices marked with "+" start at the listed rate. Final pricing confirmed in-shop based on length, density, and style.</p>
           </div>
         </section>
 
