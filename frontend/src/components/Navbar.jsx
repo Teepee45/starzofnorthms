@@ -2,6 +2,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Scissors } from "lucide-react";
 import { useState } from "react";
+import { BOOKSY_URL } from "@/lib/booking";
 
 const links = [
   { to: "/#services", label: "Services" },
@@ -55,11 +56,11 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <Link to="/book">
+          <a href={BOOKSY_URL} target="_blank" rel="noreferrer">
             <Button data-testid="navbar-book-btn" className="rounded-none font-medium tracking-wide">
-              Book Now
+              Book on Booksy
             </Button>
-          </Link>
+          </a>
           <button
             data-testid="navbar-mobile-toggle"
             className="md:hidden p-2"

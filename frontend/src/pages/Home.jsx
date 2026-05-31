@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Star, MapPin, Phone, Clock, ArrowUpRight, Heart, Sparkles, Scissors, Coffee, Smile, Baby, CheckCircle2 } from "lucide-react";
 import { api } from "@/lib/api";
+import { BOOKSY_URL } from "@/lib/booking";
 
 const HERO_IMG = "https://images.pexels.com/photos/13058812/pexels-photo-13058812.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
 const G1 = "https://images.pexels.com/photos/33448216/pexels-photo-33448216.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
@@ -63,12 +64,12 @@ export default function Home() {
                 color, kids' cuts — all done by people who'll remember your name on the second visit.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-3">
-                <Link to="/book">
+                <a href={BOOKSY_URL} target="_blank" rel="noreferrer">
                   <Button data-testid="hero-book-btn" size="lg" className="rounded-none h-12 px-7 text-base tracking-wide hover:-translate-y-0.5 transition-transform">
-                    Book Online
+                    Book on Booksy
                     <ArrowUpRight className="w-4 h-4 ml-1" strokeWidth={2} />
                   </Button>
-                </Link>
+                </a>
                 <a href="tel:+16623938902">
                   <Button data-testid="hero-call-btn" variant="outline" size="lg" className="rounded-none h-12 px-7 text-base">
                     <Phone className="w-4 h-4 mr-2" strokeWidth={1.5} /> (662) 393-8902
@@ -134,9 +135,9 @@ export default function Home() {
                   Honest pricing.<br/>Editorial precision.
                 </h2>
               </div>
-              <Link to="/book">
-                <Button data-testid="services-book-btn" className="rounded-none">Book a service <ArrowUpRight className="w-4 h-4 ml-1"/></Button>
-              </Link>
+              <a href={BOOKSY_URL} target="_blank" rel="noreferrer">
+                <Button data-testid="services-book-btn" className="rounded-none">Book on Booksy <ArrowUpRight className="w-4 h-4 ml-1"/></Button>
+              </a>
             </div>
 
             <div className="divide-y divide-border border-t border-b border-border bg-background">
@@ -256,11 +257,11 @@ export default function Home() {
                 </div>
               </div>
               <div className="mt-10 flex gap-3">
-                <Link to="/book">
+                <a href={BOOKSY_URL} target="_blank" rel="noreferrer">
                   <Button data-testid="contact-book-btn" className="rounded-none h-12 px-7 bg-primary hover:bg-primary/90 text-primary-foreground">
-                    Book Online <ArrowUpRight className="w-4 h-4 ml-1"/>
+                    Book on Booksy <ArrowUpRight className="w-4 h-4 ml-1"/>
                   </Button>
-                </Link>
+                </a>
                 <a href="https://maps.google.com/?q=1731+Dancy+Blvd,+Horn+Lake,+MS+38637" target="_blank" rel="noreferrer">
                   <Button data-testid="contact-directions-btn" variant="outline" className="rounded-none h-12 px-7 border-background/30 text-background hover:bg-background hover:text-foreground bg-transparent">
                     Get directions
