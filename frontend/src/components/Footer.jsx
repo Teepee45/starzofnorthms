@@ -32,7 +32,7 @@ export default function Footer() {
         <div>
           <h4 className="font-heading font-semibold mb-3">Quick Links</h4>
           <ul className="space-y-2 text-sm text-foreground/80">
-            <li><a href={BOOKSY_URL} target="_blank" rel="noreferrer" className="hover:text-primary">Book Now</a></li>
+            <li><a href={BOOKSY_URL} target="_top" rel="noreferrer" className="hover:text-primary">Book Now</a></li>
             <li><a href="#services" className="hover:text-primary">Services</a></li>
             <li><a href="#gallery" className="hover:text-primary">Gallery</a></li>
             <li><Link to="/admin" className="hover:text-primary">Staff</Link></li>

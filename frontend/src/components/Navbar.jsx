@@ -57,7 +57,7 @@ export default function Navbar() {
 
         <div className="flex items-center gap-3">
           <Button asChild data-testid="navbar-book-btn" className="rounded-none font-medium tracking-wide">
-            <a href={BOOKSY_URL} target="_blank" rel="noopener noreferrer">
+            <a href={BOOKSY_URL} target="_top" rel="noopener noreferrer">
               Book Now
             </a>
           </Button>

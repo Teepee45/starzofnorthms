@@ -29,7 +29,7 @@ export default function Book() {
           </p>
           <div className="mt-8 flex justify-center">
             <Button asChild data-testid="booksy-redirect-btn" size="lg" className="rounded-none h-12 px-7 text-base">
-              <a href={BOOKSY_URL} target="_blank" rel="noopener noreferrer">
+              <a href={BOOKSY_URL} target="_top" rel="noopener noreferrer">
                 Open Booksy <ArrowUpRight className="w-4 h-4 ml-1" />
               </a>
             </Button>
