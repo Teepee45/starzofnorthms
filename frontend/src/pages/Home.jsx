@@ -66,7 +66,7 @@ export default function Home() {
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <a href={BOOKSY_URL} target="_blank" rel="noreferrer">
                   <Button data-testid="hero-book-btn" size="lg" className="rounded-none h-12 px-7 text-base tracking-wide hover:-translate-y-0.5 transition-transform">
-                    Book on Booksy
+                    Book Now
                     <ArrowUpRight className="w-4 h-4 ml-1" strokeWidth={2} />
                   </Button>
                 </a>
@@ -136,7 +136,7 @@ export default function Home() {
                 </h2>
               </div>
               <a href={BOOKSY_URL} target="_blank" rel="noreferrer">
-                <Button data-testid="services-book-btn" className="rounded-none">Book on Booksy <ArrowUpRight className="w-4 h-4 ml-1"/></Button>
+                <Button data-testid="services-book-btn" className="rounded-none">Book Now <ArrowUpRight className="w-4 h-4 ml-1"/></Button>
               </a>
             </div>
 
@@ -259,7 +259,7 @@ export default function Home() {
               <div className="mt-10 flex gap-3">
                 <a href={BOOKSY_URL} target="_blank" rel="noreferrer">
                   <Button data-testid="contact-book-btn" className="rounded-none h-12 px-7 bg-primary hover:bg-primary/90 text-primary-foreground">
-                    Book on Booksy <ArrowUpRight className="w-4 h-4 ml-1"/>
+                    Book Now <ArrowUpRight className="w-4 h-4 ml-1"/>
                   </Button>
                 </a>
                 <a href="https://maps.google.com/?q=1731+Dancy+Blvd,+Horn+Lake,+MS+38637" target="_blank" rel="noreferrer">
