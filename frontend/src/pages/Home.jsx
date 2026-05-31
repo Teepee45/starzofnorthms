@@ -8,10 +8,10 @@ import { Star, MapPin, Phone, Clock, ArrowUpRight, Heart, Sparkles, Scissors, Co
 import { api } from "@/lib/api";
 import { BOOKSY_URL } from "@/lib/booking";
 
-const HERO_IMG = "https://images.pexels.com/photos/13058812/pexels-photo-13058812.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
-const G1 = "https://images.pexels.com/photos/33448216/pexels-photo-33448216.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
-const G2 = "https://images.pexels.com/photos/32329615/pexels-photo-32329615.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
-const G3 = "https://images.pexels.com/photos/9146943/pexels-photo-9146943.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
+const HERO_IMG = "https://customer-assets.emergentagent.com/job_grooming-starz/artifacts/huc8tmn3_IMG_2947.jpeg";
+const G_WAITING = "https://customer-assets.emergentagent.com/job_grooming-starz/artifacts/plj7x22c_IMG_3189.jpeg";
+const G_EXTERIOR = "https://customer-assets.emergentagent.com/job_grooming-starz/artifacts/gh4r3hc4_IMG_2931.jpeg";
+const G_SALON = "https://customer-assets.emergentagent.com/job_grooming-starz/artifacts/ribqz3k9_IMG_2323.jpeg";
 
 const OWNER_IMG = "https://images.unsplash.com/photo-1625241152315-4a698f74ceb7?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAxODF8MHwxfHNlYXJjaHwyfHxkaXZlcnNlJTIwd2VsY29taW5nJTIwcG9ydHJhaXQlMjBzbWlsaW5nfGVufDB8fHx8MTc4MDA3Mzk0Nnww&ixlib=rb-4.1.0&q=85";
 
@@ -85,7 +85,7 @@ export default function Home() {
 
             <div className="lg:col-span-5 relative">
               <div className="relative aspect-[4/5] overflow-hidden">
-                <img src={HERO_IMG} alt="Starz Barber interior" className="w-full h-full object-cover" />
+                <img src={HERO_IMG} alt="J. Wise sculpting a client's beard at Starz" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 ring-1 ring-inset ring-black/10" />
               </div>
               <div className="absolute -bottom-6 -left-6 bg-background border border-border p-5 max-w-[240px] hidden sm:block">
@@ -179,13 +179,13 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-6 grid-rows-2 gap-4 h-[700px]">
               <div className="col-span-3 row-span-2 overflow-hidden">
-                <img src={G1} alt="Precision cut" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+                <img src={G_WAITING} alt="Starz waiting area" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
               </div>
               <div className="col-span-3 row-span-1 overflow-hidden">
-                <img src={G2} alt="Cut in progress" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+                <img src={G_EXTERIOR} alt="Starz Barber & Beauty storefront on Dancy Blvd" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
               </div>
               <div className="col-span-2 row-span-1 overflow-hidden">
-                <img src={G3} alt="Interior" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+                <img src={G_SALON} alt="Beauty salon chair at Starz" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
               </div>
               <div className="col-span-1 row-span-1 bg-primary text-primary-foreground p-5 flex flex-col justify-between">
                 <Scissors className="w-6 h-6" strokeWidth={1.5}/>
