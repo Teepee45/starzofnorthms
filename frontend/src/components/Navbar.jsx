@@ -56,11 +56,11 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <a href={BOOKSY_URL} target="_blank" rel="noreferrer">
-            <Button data-testid="navbar-book-btn" className="rounded-none font-medium tracking-wide">
+          <Button asChild data-testid="navbar-book-btn" className="rounded-none font-medium tracking-wide">
+            <a href={BOOKSY_URL} target="_blank" rel="noopener noreferrer">
               Book Now
-            </Button>
-          </a>
+            </a>
+          </Button>
           <button
             data-testid="navbar-mobile-toggle"
             className="md:hidden p-2"

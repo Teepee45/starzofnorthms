@@ -28,11 +28,11 @@ export default function Book() {
             If your browser doesn't redirect automatically, tap the button below.
           </p>
           <div className="mt-8 flex justify-center">
-            <a href={BOOKSY_URL} target="_blank" rel="noreferrer">
-              <Button data-testid="booksy-redirect-btn" size="lg" className="rounded-none h-12 px-7 text-base">
+            <Button asChild data-testid="booksy-redirect-btn" size="lg" className="rounded-none h-12 px-7 text-base">
+              <a href={BOOKSY_URL} target="_blank" rel="noopener noreferrer">
                 Open Booksy <ArrowUpRight className="w-4 h-4 ml-1" />
-              </Button>
-            </a>
+              </a>
+            </Button>
           </div>
           <p className="mt-6 text-xs text-muted-foreground">
             Or call us at <a href="tel:+16623938902" className="hover:text-primary">(662) 393-8902</a>
