@@ -41,7 +41,7 @@ export default function Home() {
             <div className="lg:col-span-7 fade-up">
               <div className="flex items-center gap-3 mb-6">
                 <Badge variant="secondary" className="rounded-none px-3 py-1 font-medium tracking-wide">
-                  Est. Horn Lake, MS
+                  Est. 2008 · Horn Lake, MS
                 </Badge>
                 <div className="flex items-center gap-1 text-sm">
                   {[...Array(5)].map((_, i) => (
