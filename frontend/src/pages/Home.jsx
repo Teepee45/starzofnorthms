@@ -4,9 +4,10 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Star, MapPin, Phone, Clock, ArrowUpRight, Heart, Sparkles, Scissors, Coffee, Smile, Baby, CheckCircle2 } from "lucide-react";
+import { Star, MapPin, Phone, Clock, ArrowUpRight, Sparkles, Scissors, Coffee, Smile, Baby, CheckCircle2, Users } from "lucide-react";
 import { api } from "@/lib/api";
 import { BOOKSY_URL } from "@/lib/booking";
+import { hoursStatusLabel, bookCtaLabel } from "@/lib/hours";
 
 const HERO_IMG = "https://customer-assets.emergentagent.com/job_grooming-starz/artifacts/huc8tmn3_IMG_2947.jpeg";
 const G_WAITING = "https://customer-assets.emergentagent.com/job_grooming-starz/artifacts/plj7x22c_IMG_3189.jpeg";
@@ -26,9 +27,12 @@ const REVIEWS = [
 
 export default function Home() {
   const [services, setServices] = useState([]);
+  const [barbers, setBarbers] = useState([]);
+  const bookLabel = bookCtaLabel();
 
   useEffect(() => {
     api.get("/services").then((r) => setServices(r.data)).catch(() => {});
+    api.get("/barbers").then((r) => setBarbers(r.data)).catch(() => {});
   }, []);
 
   return (
@@ -56,7 +60,7 @@ export default function Home() {
               </p>
               <h1 className="font-heading font-extrabold tracking-tighter text-5xl sm:text-6xl lg:text-7xl leading-[0.95]">
                 Quality cuts.<br />
-                <span className="text-primary">Family</span> chair.<br />
+                <span className="text-primary">Family</span> atmosphere.<br />
                 Everyone welcome.
               </h1>
               <p className="mt-6 max-w-xl text-base lg:text-lg text-foreground/70 leading-relaxed">
@@ -66,7 +70,7 @@ export default function Home() {
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <Button asChild data-testid="hero-book-btn" size="lg" className="rounded-none h-12 px-7 text-base tracking-wide hover:-translate-y-0.5 transition-transform">
                   <a href={BOOKSY_URL} target="_top" rel="noopener noreferrer">
-                    Book Now
+                    {bookLabel}
                     <ArrowUpRight className="w-4 h-4 ml-1" strokeWidth={2} />
                   </a>
                 </Button>
@@ -78,8 +82,7 @@ export default function Home() {
               </div>
               <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-2 text-sm text-foreground/70">
                 <span className="flex items-center gap-2"><MapPin className="w-4 h-4 text-primary" strokeWidth={1.5}/> 1731 Dancy Blvd</span>
-                <span className="flex items-center gap-2"><Clock className="w-4 h-4 text-primary" strokeWidth={1.5}/> Open · Closes 6 PM</span>
-                <span className="flex items-center gap-2"><Heart className="w-4 h-4 text-primary" strokeWidth={1.5}/> LGBTQ+ friendly</span>
+                <span className="flex items-center gap-2"><Clock className="w-4 h-4 text-primary" strokeWidth={1.5}/> {hoursStatusLabel()}</span>
               </div>
             </div>
 
@@ -136,7 +139,7 @@ export default function Home() {
                 </h2>
               </div>
               <Button asChild data-testid="services-book-btn" className="rounded-none">
-                <a href={BOOKSY_URL} target="_top" rel="noopener noreferrer">Book Now <ArrowUpRight className="w-4 h-4 ml-1"/></a>
+                <a href={BOOKSY_URL} target="_top" rel="noopener noreferrer">{bookLabel} <ArrowUpRight className="w-4 h-4 ml-1"/></a>
               </Button>
             </div>
 
@@ -219,6 +222,42 @@ export default function Home() {
           </div>
         </section>
 
+        {/* TEAM */}
+        <section id="team" data-testid="team-section" className="max-w-7xl mx-auto px-6 lg:px-10 py-24 lg:py-32">
+          <div className="mb-14 flex items-end justify-between">
+            <div>
+              <p className="text-sm uppercase tracking-[0.3em] text-primary mb-4">The Chairs</p>
+              <h2 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl tracking-tight">Meet the team.</h2>
+              <p className="mt-5 text-foreground/70 max-w-sm">The people who'll remember your name on the second visit.</p>
+            </div>
+            <Users className="w-8 h-8 text-primary hidden sm:block" strokeWidth={1.5} />
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {barbers.map((b) => (
+              <div key={b.id} data-testid={`team-card-${b.id}`} className="border border-border bg-background overflow-hidden group">
+                <div className="aspect-[4/5] overflow-hidden">
+                  <img src={b.image_url} alt={b.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                </div>
+                <div className="p-6">
+                  <p className="font-heading font-extrabold text-xl tracking-tight">{b.name}</p>
+                  <p className="text-sm text-primary mt-1">{b.role}</p>
+                  {b.bio && <p className="text-sm text-foreground/70 mt-3 leading-relaxed">{b.bio}</p>}
+                  {b.specialties?.length > 0 && (
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {b.specialties.map((s, i) => (
+                        <span key={i} className="text-xs uppercase tracking-wide border border-border px-2 py-1 text-foreground/70">{s}</span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+          {barbers.length === 0 && (
+            <div className="py-10 text-center text-muted-foreground">Loading team…</div>
+          )}
+        </section>
+
         {/* REVIEWS */}
         <section id="reviews" data-testid="reviews-section" className="max-w-7xl mx-auto px-6 lg:px-10 py-24 lg:py-32">
           <div className="grid lg:grid-cols-12 gap-12">
@@ -283,7 +322,7 @@ export default function Home() {
               <div className="mt-10 flex gap-3">
                 <Button asChild data-testid="contact-book-btn" className="rounded-none h-12 px-7 bg-primary hover:bg-primary/90 text-primary-foreground">
                   <a href={BOOKSY_URL} target="_top" rel="noopener noreferrer">
-                    Book Now <ArrowUpRight className="w-4 h-4 ml-1"/>
+                    {bookLabel} <ArrowUpRight className="w-4 h-4 ml-1"/>
                   </a>
                 </Button>
                 <a href="https://maps.google.com/?q=1731+Dancy+Blvd,+Horn+Lake,+MS+38637" target="_top" rel="noreferrer">
