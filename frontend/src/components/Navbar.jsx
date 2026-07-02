@@ -3,10 +3,12 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { BOOKSY_URL } from "@/lib/booking";
+import { bookCtaLabel } from "@/lib/hours";
 
 const links = [
   { to: "/#services", label: "Services" },
   { to: "/#gallery", label: "Gallery" },
+  { to: "/#team", label: "Team" },
   { to: "/#reviews", label: "Reviews" },
   { to: "/#contact", label: "Visit" },
 ];
@@ -58,7 +60,7 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           <Button asChild data-testid="navbar-book-btn" className="rounded-none font-medium tracking-wide">
             <a href={BOOKSY_URL} target="_top" rel="noopener noreferrer">
-              Book Now
+              {bookCtaLabel()}
             </a>
           </Button>
           <button
