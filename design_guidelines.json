@@ -135,6 +135,6 @@
     "APP LOGIC: Implement the booking flow inside a dedicated multi-step form or dialog, featuring distinct steps (Service -> Barber -> Date -> Details).",
     "FONTS: Import 'Outfit' and 'Work Sans' from Google Fonts in index.css. Apply them globally in tailwind.config.js.",
     "DASHBOARD: Make the Admin Dashboard dense and functional. Use flat backgrounds, 1px subtle borders, no shadows.",
-    "VIBE CHECK: Maintain the LGBTQ+ friendly and family atmosphere by using the curated imagery and warm copy. Avoid dark 'bro-barber' cliches."
+    "VIBE CHECK: Maintain the welcoming family atmosphere by using the curated imagery and warm copy. Avoid dark 'bro-barber' cliches."
   ]
 }
