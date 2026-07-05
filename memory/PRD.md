@@ -4,7 +4,7 @@
 Build a high-quality website for **Starz Barber & Beauty**, Horn Lake, MS.
 - Address: 1731 Dancy Blvd, Horn Lake, MS 38637
 - Phone: (662) 393-8902
-- 4.9★ · 45 Google reviews · LGBTQ+ friendly · Open · Closes 6 PM
+- 4.9★ · 45 Google reviews · Open · Closes 6 PM
 - Tagline themes: "Quality precision cuts, family atmosphere"
 
 ## Architecture
