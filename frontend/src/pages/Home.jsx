@@ -10,9 +10,11 @@ import { BOOKSY_URL } from "@/lib/booking";
 import { hoursStatusLabel, bookCtaLabel } from "@/lib/hours";
 
 const HERO_IMG = "https://customer-assets.emergentagent.com/job_grooming-starz/artifacts/huc8tmn3_IMG_2947.jpeg";
-const G_WAITING = "https://customer-assets.emergentagent.com/job_grooming-starz/artifacts/plj7x22c_IMG_3189.jpeg";
-const G_EXTERIOR = "https://customer-assets.emergentagent.com/job_grooming-starz/artifacts/gh4r3hc4_IMG_2931.jpeg";
-const G_SALON = "https://customer-assets.emergentagent.com/job_grooming-starz/artifacts/ribqz3k9_IMG_2323.jpeg";
+// TODO: Replace these 3 with real haircut/work photos from Snap. Keep the same
+// variable names so the gallery layout below doesn't need to change.
+const G_HAIRCUT_1 = "https://customer-assets.emergentagent.com/job_grooming-starz/artifacts/plj7x22c_IMG_3189.jpeg";
+const G_HAIRCUT_2 = "https://customer-assets.emergentagent.com/job_grooming-starz/artifacts/gh4r3hc4_IMG_2931.jpeg";
+const G_HAIRCUT_3 = "https://customer-assets.emergentagent.com/job_grooming-starz/artifacts/ribqz3k9_IMG_2323.jpeg";
 
 const OWNER_IMG = "https://images.unsplash.com/photo-1625241152315-4a698f74ceb7?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAxODF8MHwxfHNlYXJjaHwyfHxkaXZlcnNlJTIwd2VsY29taW5nJTIwcG9ydHJhaXQlMjBzbWlsaW5nfGVufDB8fHx8MTc4MDA3Mzk0Nnww&ixlib=rb-4.1.0&q=85";
 
@@ -206,13 +208,13 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-6 grid-rows-2 gap-4 h-[700px]">
               <div className="col-span-3 row-span-2 overflow-hidden">
-                <img src={G_WAITING} alt="Starz waiting area" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+                <img src={G_HAIRCUT_1} alt="Fresh haircut at Starz Barber & Beauty" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
               </div>
               <div className="col-span-3 row-span-1 overflow-hidden">
-                <img src={G_EXTERIOR} alt="Starz Barber & Beauty storefront on Dancy Blvd" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+                <img src={G_HAIRCUT_2} alt="Precision fade at Starz Barber & Beauty" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
               </div>
               <div className="col-span-2 row-span-1 overflow-hidden">
-                <img src={G_SALON} alt="Beauty salon chair at Starz" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+                <img src={G_HAIRCUT_3} alt="Haircut detail work at Starz" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
               </div>
               <div className="col-span-1 row-span-1 bg-primary text-primary-foreground p-5 flex flex-col justify-between">
                 <Scissors className="w-6 h-6" strokeWidth={1.5}/>
@@ -316,7 +318,10 @@ export default function Home() {
                 </div>
                 <div>
                   <p className="text-xs uppercase tracking-widest text-background/60">Hours</p>
-                  <p className="mt-1 text-lg">Mon – Sat · 9 AM – 6 PM<br/>Sun · Closed</p>
+                  <p className="mt-1 text-lg">
+                    Mon – Sat · 9 AM – 6 PM<br/>
+                    Sun · <a href={BOOKSY_URL} target="_top" rel="noopener noreferrer" className="underline hover:text-primary">Book Appointment</a>
+                  </p>
                 </div>
               </div>
               <div className="mt-10 flex gap-3">
